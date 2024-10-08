@@ -1,0 +1,26 @@
+# MacOS specific
+.DS_Store
+
+# Node.js specific
+node_modules/
+
+# TypeScript specific
+*.tsbuildinfo
+
+# Environment variables
+.env
+
+# IDEs and text editor settings
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Frontend specific
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# Backend specific
+backend/node_modules/
+backend/dist/
+backend/.env
