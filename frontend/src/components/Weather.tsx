@@ -1,6 +1,7 @@
 // src/components/Weather.tsx
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
+import { getWeatherCondition } from '../helpers/weatherMapping';
 import './Weather.scss';
 
 // Define the TypeScript types for the weather data
@@ -39,15 +40,19 @@ const Weather: React.FC = () => {
     if (loading) return <p>Loading weather data...</p>;
     if (error) return <p>Error fetching weather data</p>;
 
+    const weatherCode = Number(data?.getWeather.weatherDescription);
+    const { description, backgroundClass } = getWeatherCondition(weatherCode);
+
     return (
-        <div className='weather-container'>
+        <div className={`weather-container ${backgroundClass}`}>
             <div className='weather-card'>
                 <h1 className='weather-card__title'>Current Weather</h1>
+                <h2 className='weather-card__city'>Vancouver, BC</h2>
                 <p className='weather-card__data'>
                     Temperature: {data?.getWeather.temperature}°C
                 </p>
                 <p className='weather-card__data'>
-                    Condition: {data?.getWeather.weatherDescription}
+                    Condition: {description}
                 </p>
             </div>
         </div>

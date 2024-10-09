@@ -38,11 +38,8 @@ builder.queryType({
                 }),
             },
             resolve: async (parent, { latitude, longitude }) => {
-                console.log('Fetching from API async:', process.env.API_URL);
                 const apiUrl = `${process.env.API_URL}?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
-
                 try {
-                    console.log('Fetching from API try:', process.env.API_URL);
                     const response = await axios.get(apiUrl);
                     const weatherData = response.data.current_weather;
 
@@ -59,5 +56,4 @@ builder.queryType({
     }),
 });
 
-// Export the built schema
 export const schema = builder.toSchema({});
