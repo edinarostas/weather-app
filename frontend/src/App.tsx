@@ -1,12 +1,17 @@
 import React from 'react';
+import { ApolloProvider } from '@apollo/client';
+import client from './ApolloClient';
+import Weather from './components/Weather';
 import './App.scss';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      Weather App
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <Weather />
+      </div>
+    </ApolloProvider>
   );
-}
+};
 
 export default App;
