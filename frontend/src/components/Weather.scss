@@ -5,39 +5,15 @@
     justify-content: center;
     height: 100vh;
     font-family: 'Arial', sans-serif;
-    transition: background-color 0.5s ease;
-
-    &.clear-sky {
-        background: linear-gradient(to top, #87ceeb, #f0f4f8);
-    }
-
-    &.partly-cloudy {
-        background: linear-gradient(to top, #d3d3d3, #f0f4f8);
-    }
-
-    &.overcast {
-        background: linear-gradient(to top, #a9a9a9, #dcdcdc);
-    }
-
-    &.rainy {
-        background: linear-gradient(to top, #6e7f80, #a9a9a9);
-    }
-
-    &.snowy {
-        background: linear-gradient(to top, #e0e7ff, #d3e0ea);
-    }
-
-    &.foggy {
-        background: linear-gradient(to top, #cfcfcf, #e0e0e0);
-    }
-
-    &.thunderstorm {
-        background: linear-gradient(to top, #505050, #808080);
-    }
+    background-image: url('../assets/images/vancouver-stanley-park.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
 }
 
 .weather-card {
-    background-color: #fff;
+    background-color: rgba(12, 53, 62, 0.6);
+    color: lightblue;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -47,15 +23,18 @@
     &__title {
         font-size: 24px;
         margin-bottom: 20px;
+        color: white;
     }
 
     &__city {
         font-size: 20px;
         margin-bottom: 20px;
+        color: lightgreen;
     }
 
-    &__data {
+    &__temperature {
         font-size: 18px;
         margin: 10px 0;
+        color: white
     }
 }

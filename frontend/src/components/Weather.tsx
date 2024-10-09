@@ -41,15 +41,15 @@ const Weather: React.FC = () => {
     if (error) return <p>Error fetching weather data</p>;
 
     const weatherCode = Number(data?.getWeather.weatherDescription);
-    const { description, backgroundClass } = getWeatherCondition(weatherCode);
+    const description = getWeatherCondition(weatherCode);
 
     return (
-        <div className={`weather-container ${backgroundClass}`}>
+        <div className='weather-container'>
             <div className='weather-card'>
                 <h1 className='weather-card__title'>Current Weather</h1>
                 <h2 className='weather-card__city'>Vancouver, BC</h2>
-                <p className='weather-card__data'>
-                    Temperature: {data?.getWeather.temperature}°C
+                <p className='weather-card__temperature'>
+                    {data?.getWeather.temperature} °C
                 </p>
                 <p className='weather-card__data'>
                     Condition: {description}
