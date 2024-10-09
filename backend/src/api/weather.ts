@@ -8,10 +8,11 @@ export const getWeather = async (latitude: number, longitude: number) => {
 
         return {
             temperature: data.current_weather.temperature,
-            windspeed: data.current_weather.windspeed,
+            weatherDescription: data.current_weather.weather_code,
         };
     } catch (error) {
         console.error('Error fetching weather data:', error);
         throw new Error('Could not fetch weather data');
     }
 };
+

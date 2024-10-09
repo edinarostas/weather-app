@@ -15,9 +15,9 @@ const WeatherRef = builder.objectRef<Weather>('Weather').implement({
             description: 'Current temperature in Celsius',
             resolve: (weather) => weather.temperature,
         }),
-        windspeed: t.float({
-            description: 'Current wind speed in m/s',
-            resolve: (weather) => weather.windspeed,
+        weatherDescription: t.float({
+            description: 'A textual description of the weather (e.g. sunny, cloudy)',
+            resolve: (weather) => weather.weatherDescription,
         }),
     }),
 });
@@ -48,7 +48,7 @@ builder.queryType({
 
                     return {
                         temperature: weatherData.temperature,
-                        windspeed: weatherData.windspeed,
+                        weatherDescription: weatherData.weathercode,
                     };
                 } catch (error) {
                     console.error('Error fetching weather data:', error);

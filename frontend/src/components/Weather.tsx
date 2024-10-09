@@ -7,7 +7,7 @@ import './Weather.scss';
 interface WeatherData {
     getWeather: {
         temperature: number;
-        windspeed: number;
+        weatherDescription: number;
     };
 }
 
@@ -21,7 +21,7 @@ const GET_WEATHER = gql`
   query GetWeather($latitude: Float!, $longitude: Float!) {
     getWeather(latitude: $latitude, longitude: $longitude) {
       temperature
-      windspeed
+      weatherDescription
     }
   }
 `;
@@ -47,7 +47,7 @@ const Weather: React.FC = () => {
                     Temperature: {data?.getWeather.temperature}°C
                 </p>
                 <p className='weather-card__data'>
-                    Windspeed: {data?.getWeather.windspeed} m/s
+                    Condition: {data?.getWeather.weatherDescription}
                 </p>
             </div>
         </div>
